@@ -1,0 +1,124 @@
+.main-nav {
+            display: flex;
+            justify-content: space-around; /* oder flex-start, center etc. */
+            background-color: rgba(226, 43, 134, 0.6);
+            padding: 10px;
+                    /* Diese Eigenschaften sorgen dafür, dass die Leiste oben fixiert wird */
+            position: fixed; /* Fixiert das Element relativ zum Viewport */
+            top: 0;          /* Platziert es am oberen Rand */
+            left: 0;         /* Platziert es am linken Rand */
+            width: 100%;     /* Lässt es die gesamte Breite einnehmen */
+            z-index: 1000;   /* Stellt sicher, dass es über anderem Inhalt liegt */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: leichter Schatten für Tiefe */
+        }
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            } 
+
+            a {
+            color: #e22b86;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+ 
+ 
+ 
+ body, html {
+            background-image: url("C:/Users/max-p/Desktop/Coding/Japan/img/Tokyo-Tower.jpg"); /* The image used */
+            height: 100%; /* Full height */
+            background-attachment: fixed; /* Create the parallax scrolling effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px; /* Platz für fixierte Navigationsleiste, falls vorhanden */
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+          }
+
+
+
+
+main {
+    max-width: 1000px; /* Maximale Breite für den Hauptinhalt */
+    margin: 20px auto; /* Zentriert den Hauptinhalt */
+    padding: 0 20px;
+}
+
+h2, h1 {
+   color: #ffffff;
+   text-align: center;
+   text-shadow: 2px 2px 4px #000000;
+}
+
+/* --- Stil für das 2x2 Grid (Aufgabe 2) --- */
+.grid-container-2x2 {
+    display: grid;
+    /* Definiert 2 Spalten, die den verfügbaren Platz gleichmäßig aufteilen */
+    grid-template-columns: repeat(2, 1fr);
+    /* Definiert 2 Zeilen, die den verfügbaren Platz gleichmäßig aufteilen */
+    grid-template-rows: repeat(2, minmax(250px, auto)); /* Mindesthöhe für Zeilen */
+    gap: 20px; /* Abstand zwischen den Grid-Items */
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid #e22b86; /* Rand: Dicke, Stil, Farbe (Japan-Rot) */
+}
+
+/* --- Stil für die Bucket List Galerie (Aufgabe 3) --- */
+.grid-container-gallery {
+    display: grid;
+    /* Definiert Spalten, die sich automatisch anpassen.
+       Jede Spalte ist mindestens 250px breit und maximal 1fr (ein Teil des verfügbaren Platzes). */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px; /* Abstand zwischen den Grid-Items */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid #e22b86; /* Rand: Dicke, Stil, Farbe (Japan-Rot) */
+}
+
+/* Gemeinsamer Stil für alle Grid-Items */
+.grid-item {
+    border-radius: 8px;
+    overflow: hidden; /* Stellt sicher, dass das Bild innerhalb der abgerundeten Ecken bleibt */
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex; /* Flexbox innerhalb des Grid-Items für vertikale Ausrichtung */
+    flex-direction: column;
+}
+
+.grid-item img {
+    width: 100%; /* Bild nimmt die volle Breite des Grid-Items ein */
+    height: 270px; /* Feste Höhe für die Bilder */
+    object-fit: cover; /* Stellt sicher, dass das Bild den Bereich ausfüllt, ohne verzerrt zu werden */
+    display: block; /* Entfernt zusätzlichen Platz unter dem Bild */
+}
+
+.grid-item p {
+    padding: 10px;
+    margin: 0; /* Keine Standard-Marges für den Absatz */
+    color: #000000;
+    font-size: 0.9em;
+    flex-grow: 1; /* Lässt den Textbereich wachsen und den Rest des Platzes einnehmen */
+    display: flex; /* Für vertikale Zentrierung des Textes falls nur eine Zeile */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; /* Abstand über dem Footer */
+}
