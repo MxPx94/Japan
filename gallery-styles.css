@@ -1,0 +1,411 @@
+/* --- Basis-Stile (für größere Bildschirme / Desktop-Ansicht) --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Standard-Margin des Browsers entfernen */
+    padding-top: 60px; /* Platz für die fixierte Navigationsleiste */
+    color: #ffffff; /* Allgemeine Textfarbe für die Seite */
+    box-sizing: border-box; /* Padding wird in der Gesamtgröße berücksichtigt */
+    min-height: 100vh; /* Mindesthöhe des Viewports */
+}
+
+/* Hintergrundbild auf dem HTML-Element, damit es den ganzen Viewport ausfüllt */
+html {
+    background-image: url("https://bit.ly/43Kdzup"); /* Tokyo Tower Bild von Unsplash */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%; /* Stellt sicher, dass das HTML-Element den gesamten Viewport einnimmt */
+}
+
+/* Allgemeine Link-Stile für den Inhalt */
+a {
+    color: #e22b86; /* Rosa Farbe für Links im Inhalt */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Hauptinhaltsbereich */
+main {
+    max-width: 1200px; /* Maximale Breite für den Hauptinhalt */
+    margin: 20px auto; /* Horizontal zentriert */
+    padding: 0 20px; /* Innenabstand an den Seiten */
+}
+
+/* Überschriften-Stile */
+h1,
+h2 {
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 30px; /* Abstand unter Überschriften */
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 40px; /* Abstand nach der Navigationsleiste */
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 50px; /* Abstand zwischen den Sektionen */
+}
+
+/* Footer */
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+/* --- Navigationsleiste --- */
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(226, 43, 134, 0.4); /* Etwas weniger transparent für bessere Sichtbarkeit */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    white-space: nowrap;
+    flex-grow: 1; /* Lässt Links wachsen (Desktop) */
+    text-align: center;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Stile für die Interaktive Japan-Karte (Micro-Projekt) --- */
+#interactiveMapSection {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid #e22b86;
+    margin-bottom: 40px;
+    text-align: center; /* Zentriert den Inhalt der Sektion */
+}
+
+.map-container {
+    position: relative; /* Wichtig: Ermöglicht die Positionierung der Hotspots absolut zu diesem Container */
+    max-width: 350px; /* Maximale Breite der Karte */
+    margin: 20px auto; /* Zentriert den Karten-Container */
+    overflow: hidden; /* Stellt sicher, dass nichts überläuft */
+    border-radius: 8px;
+}
+
+.japan-map-image {
+    width: 100%; /* Bild füllt den Container aus */
+    height: auto;
+    display: block; /* Entfernt zusätzlichen Platz unter dem Bild */
+    border-radius: 8px;
+}
+
+.map-hotspot {
+    position: absolute; /* Positioniert die Buttons relativ zum .map-container */
+    background-color: rgba(226, 43, 134, 0.8); /* Rosa-Hintergrund */
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 50%; /* Runde Buttons */
+    width: 50px; /* Feste Breite */
+    height: 50px; /* Feste Höhe */
+    display: flex; /* Für Zentrierung des Textes */
+    justify-content: center; /* Text horizontal zentrieren */
+    align-items: center; /* Text vertikal zentrieren */
+    font-weight: bold;
+    font-size: 0.65em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    z-index: 10; /* Stellt sicher, dass sie über dem Bild liegen */
+    text-indent: -9999px; /* Text ausblenden, wenn Icons verwendet werden */
+    overflow: hidden; /* Überlaufende Inhalte verbergen */
+    background-size: 70%; /* Größe des Icons im Button */
+    background-repeat: no-repeat;
+    background-position: center; /* Zentriert das Icon im Button */
+    background-color: rgba(255, 255, 255, 0.4); /* Behalte die Hintergrundfarbe für den Button */
+    transform: translate(-50%, -50%); /* Zentriert den Hotspot um seinen 'top'/'left' Punkt */
+}
+
+.map-hotspot:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Weiß beim Hover */
+    color: #e22b86; /* Rosa Text beim Hover */
+    border-color: #e22b86; /* Rosa Rand beim Hover */
+    transform: translate(-50%, -50%) scale(1.1); /* Leichte Vergrößerung beim Hover */
+}
+
+/* Spezifische Positionen und Icon-Bilder für die Hotspots */
+#hotspotTokyo {
+    top: 50%;
+    left: 80%;
+    background-image: url('./img/Tokyo-Icon.png');
+}
+
+#hotspotKyoto {
+    top: 65%;
+    left: 65%;
+    background-image: url('./img/Kyoto-Icon.png');
+}
+
+#hotspotHokkaido {
+    top: 20%;
+    left: 80%;
+    background-image: url('./img/Hokkaido-Icon.png'); 
+}
+
+#hotspotOkinawa {
+    top: 92%;
+    left: 10%;
+    background-image: url('./img/Okinawa-Icon.png');
+}
+
+/* Stil für den Informations-Textbereich */
+.map-info-text {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    min-height: 80px; /* Mindesthöhe, um Springen zu vermeiden */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Stil für den aktivierten Hotspot (optional) */
+.map-hotspot.active {
+    background-color: #ffd700; /* Gold */
+    color: #e22b86; /* Rosa Text */
+    border-color: #e22b86;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+
+
+
+/* --- Stil für die Grid-Container (2x2 und Galerie) --- */
+.grid-container-2x2,
+.grid-container-gallery {
+    display: grid;
+    gap: 20px; /* Abstand zwischen den Grid-Items */
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.7); /* Etwas dunklerer Hintergrund */
+    padding: 25px; /* Reduziertes Padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 2px solid #e22b86;
+    justify-content: center; /* Zentriert Items, wenn es weniger sind als Spalten */
+}
+
+.grid-container-2x2 {
+    /* 2 Spalten auf Desktop, jede min. 280px, passen sich an */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-container-gallery {
+    /* 3 Spalten auf Desktop, jede min. 250px, passen sich an */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Gemeinsamer Stil für alle Grid-Items */
+.grid-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1); /* Leichter transparenter Hintergrund */
+    border: 1px solid rgba(226, 43, 134, 0.5); /* Rosa Rand */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); /* Leichter Hover-Effekt */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 200px; /* Standardhöhe für Bilder */
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(226, 43, 134, 0.5);
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    padding: 10px;
+    margin: 0;
+    color: #ffffff; /* Textfarbe weiß */
+    font-size: 1.1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    flex-grow: 1; /* Lässt den Textbereich wachsen */
+    display: flex;
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+}
+
+
+/* --- Media Queries für Responsivität --- */
+
+/* Für Bildschirme bis 1024px Breite (größere Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    main {
+        max-width: 900px;
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .grid-container-2x2,
+    .grid-container-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Etwas kleinere Min-Breite */
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .grid-item img {
+        height: 180px; /* Bilder etwas kleiner */
+    }
+}
+
+/* Für Bildschirme bis 768px Breite (Tablets und kleinere Desktops) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Beibehalten, da die Navigationsleiste nicht über die volle Breite des Viewports geht */
+    }
+
+    /* Navigation Anpassung für mittige Buttons */
+    .main-nav {
+        flex-direction: column;
+        padding: 5px 0;
+        align-items: center; /* Zentriert die gestapelten Links horizontal */
+    }
+
+    .main-nav a {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        flex-grow: 0;
+        width: 80%;
+        max-width: 250px;
+        margin: 5px auto;
+    }
+
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-top: 10px;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    .map-hotspot { /* Media Query für Karte, um Hotspots zu skalieren */
+        width: 50px;
+        height: 50px;
+        font-size: 0.8em;
+    }
+
+    .grid-container-2x2,
+    .grid-container-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 2 Spalten auf Tablets */
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .grid-item img {
+        height: 160px; /* Bilder noch kleiner */
+    }
+
+    .grid-item p {
+        font-size: 1em;
+    }
+}
+
+/* Für sehr kleine Bildschirme (Mobile Phones) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 80px; /* Mehr Platz, da Navigationslinks ggf. 2 Zeilen einnehmen */
+    }
+
+    /* Navigation Anpassung für sehr kleine Bildschirme */
+    .main-nav a {
+        padding: 8px 5px;
+        font-size: 0.9em;
+        width: 90%;
+        max-width: 200px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .map-hotspot { /* Media Query für Karte, um Hotspots zu skalieren */
+        width: 40px;
+        height: 40px;
+        font-size: 0.7em;
+    }
+
+    .grid-container-2x2,
+    .grid-container-gallery {
+        grid-template-columns: 1fr; /* Eine einzige Spalte auf Mobiltelefonen */
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .grid-item img {
+        height: 140px; /* Bilder kleiner auf Mobile */
+    }
+
+    .grid-item p {
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 10px 0;
+        font-size: 0.8em;
+    }
+}
