@@ -162,7 +162,7 @@ footer {
 #hotspotTokyo {
     top: 50%;
     left: 80%;
-    background-image: url('c:/Users/max-p/Desktop/Coding/Japan/img/Tokyo-Icon.png');
+    background-image: url('./img/Tokyo-Icon.png');
 }
 
 #hotspotKyoto {
