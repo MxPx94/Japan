@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanischer Währungsrechner</title>
+    <link rel="stylesheet" href="currency-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+    </nav>
+
+    <main>
+        <section id="currencyConverterSection" class="converter-section">
+            <h2>Japanischer Währungsrechner (JPY)</h2>
+            <div class="converter-card">
+                <div class="form-group">
+                    <label for="jpyAmount">Betrag in JPY:</label>
+                    <input type="number" id="jpyAmount" class="form-input" min="0" value="1000" placeholder="Betrag in JPY eingeben">
+                </div>
+
+                <div class="form-group">
+                    <label>Zielwährung:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="currencyEUR" name="targetCurrency" value="EUR" checked>
+                        <label for="currencyEUR">Euro (EUR)</label>
+
+                        <input type="radio" id="currencyUSD" name="targetCurrency" value="USD">
+                        <label for="currencyUSD">US-Dollar (USD)</label>
+                    </div>
+                </div>
+
+                <button id="convertButton" class="submit-button">Umrechnen</button>
+
+                <div class="result-box">
+                    <p>Umrechnungsbetrag:</p>
+                    <p id="convertedAmount" class="result-text">0.00 EUR</p>
+                    <p id="exchangeRateInfo" class="info-text"></p>
+                    <p id="converterError" class="error-message"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><small>&copy; [2025] Max Px</small></p>
+    </footer>
+
+    <script src="currency-converter.js"></script>
+</body>
+</html>

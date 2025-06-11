@@ -1,0 +1,361 @@
+/* --- Globale Stile & Basis-Layout --- */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Entfernt Standard-Margin des Browsers */
+    padding-top: 60px; /* Platz für die fixierte Navigationsleiste */
+    color: #ffffff; /* Allgemeine Textfarbe */
+    box-sizing: border-box; /* Padding wird in der Gesamtgröße berücksichtigt */
+
+    /* Hintergrundbild (Parallax-Effekt) */
+    background-image: url("https://bit.ly/43Kdzup");
+    background-attachment: fixed; /* Parallax-Effekt */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; /* Mindestens die Höhe des Viewports */
+}
+
+/* --- Navigationsleiste --- */
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(226, 43, 134, 0.4); /* Etwas weniger transparent für bessere Sichtbarkeit */
+    padding: 10px;
+    position: fixed; /* Fixiert am oberen Rand */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Stellt sicher, dass die Navigation über anderen Elementen liegt */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap; /* Ermöglicht Umbruch auf kleineren Bildschirmen */
+    box-sizing: border-box;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb eines Links */
+    flex-grow: 1; /* Lässt Links auf Desktop-Ansicht wachsen */
+    text-align: center;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Hauptinhalts-Container --- */
+.second-bg {
+    max-width: 800px; /* Maximale Breite für größere Bildschirme */
+    width: 90%; /* Nimmt 90% der verfügbaren Breite ein (responsiv) */
+    padding: 20px; /* Innenabstand */
+    border: 2px solid #e22b86;
+    margin: 60px auto 30px auto; /* Oben 60px (Platz unter Nav), horizontal zentriert, unten 30px */
+    background-color: rgba(0, 0, 0, 0.7); /* Hintergrundfarbe mit Transparenz */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* --- Typografie & Textstile --- */
+h1,
+h2,
+h3 {
+    color: #ffffff; /* Überschriften weiß */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    font-size: 2.5em; /* Größere Schrift für H1 */
+    margin-top: 30px;
+}
+
+/* Spezifische Überschriften für den Haupttitel-Bereich */
+#main-title {
+    color: #e22b86; /* Rosa */
+    font-size: 3em; /* Noch größer für den Haupttitel */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+#main-subtitle {
+    color: #e22b86;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    margin-top: 0;
+}
+
+/* Links im Inhalt */
+a {
+    color: #e22b86; /* Auffällige Farbe für Links im Text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Bilder & Bildunterschriften --- */
+img {
+    max-width: 100%; /* Bilder passen sich der Breite des Containers an */
+    height: auto; /* Höhe wird proportional angepasst */
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten für Bilder */
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-top: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Sektionen & Artikel --- */
+article,
+section {
+    margin: auto; /* Zentriert Inhalte innerhalb von .second-bg */
+    text-align: center;
+    color: #ffffff; /* Textfarbe weiß auf dunklem Hintergrund */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Leichter Schatten für bessere Lesbarkeit */
+}
+
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Helle Trennlinie */
+}
+
+section:last-child {
+    border-bottom: none; /* Keine Trennlinie unter der letzten Sektion */
+}
+
+/* --- Responsive Tabelle (z.B. für japanische Phrasen) --- */
+.responsive-table {
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen auf kleinen Bildschirmen */
+    margin: 30px auto; /* Zentriert die Tabelle mit Abstand oben/unten */
+    background-color: rgba(255, 255, 255, 0.1); /* Leichter weißer Hintergrund für Tabelle */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    text-align: left;
+    color: #ffffff; /* Textfarbe weiß */
+}
+
+th {
+    background-color: rgba(226, 43, 134, 0.8); /* Rosa Header für Tabelle */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.2); /* Leicht dunklere Zeilen */
+}
+
+/* --- Kontaktformular --- */
+.contact-form-section {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Dunkler, transparenter Hintergrund */
+    border: 1px solid #e22b86;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.contact-form-section h3 {
+    text-align: center;
+    color: #e22b86;
+    margin-top: 0;
+    text-shadow: none; /* Schatten hier entfernen, da der Hintergrund dunkel ist */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff; /* Label-Text weiß */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 20px); /* 100% minus Padding */
+    padding: 10px;
+    border: 1px solid #888; /* Hellerer Rand für Felder */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1); /* Leichter transparenter Hintergrund */
+    color: #ffffff; /* Eingabetext weiß */
+}
+
+.form-group textarea {
+    resize: vertical; /* Nur vertikales Resizing erlauben */
+}
+
+.form-group button {
+    background-color: #e22b86;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group button:hover {
+    background-color: #c72474;
+}
+
+/* --- Footer --- */
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* --- Media Queries für Responsivität --- */
+
+/* Für Bildschirme bis 768px Breite (Tablets und kleinere Desktops) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px; /* Platz für die Navigationsleiste auf mobilen Geräten */
+    }
+
+    .main-nav {
+        flex-direction: column; /* Links untereinander anordnen */
+        padding: 5px 0; /* Weniger Padding oben/unten */
+        height: auto;
+    }
+
+    .main-nav a {
+        padding: 10px 0; /* Links füllen die volle Breite */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
+    }
+
+    .main-nav a:last-child {
+        border-bottom: none; /* Keine Trennlinie unter dem letzten Link */
+    }
+
+    .second-bg {
+        width: 95%; /* Nimmt 95% der Breite ein */
+        padding: 15px;
+        margin-top: 50px; /* Etwas weniger Abstand oben */
+    }
+
+    h1 {
+        font-size: 2em; /* Kleinere H1 */
+    }
+    h2 {
+        font-size: 1.6em; /* Kleinere H2 */
+    }
+    h3 {
+        font-size: 1.3em; /* Kleinere H3 */
+    }
+    #main-title {
+        font-size: 2.5em;
+    }
+    #main-subtitle {
+        font-size: 1.2em;
+    }
+
+    /* ul (Listen) wurden hier entfernt, da sie in der ursprünglichen Datei nicht explizit für kleinere Bildschirme angepasst wurden und dies sonst zu Konflikten führen könnte, wenn es keine Listen gibt. Wenn du Listen hast, kannst du hier `margin-left` anpassen. */
+
+    .responsive-table {
+        padding: 5px; /* Weniger Padding für Tabelle */
+    }
+}
+
+/* Für sehr kleine Bildschirme (Mobile Phones) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 80px; /* Mehr Platz, da Navigationslinks ggf. 2 Zeilen einnehmen können */
+    }
+
+    .main-nav a {
+        padding: 8px 5px; /* Noch weniger horizontaler Padding */
+        font-size: 0.9em;
+    }
+
+    .second-bg {
+        width: 98%; /* Fast volle Breite */
+        padding: 10px;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.1em;
+    }
+    #main-title {
+        font-size: 2em;
+    }
+    #main-subtitle {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.95em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .form-group button {
+        padding: 8px; /* Weniger Padding für Formularfelder */
+    }
+
+    /* --- Stile für allgemeine Inhaltssektionen --- */
+/* Applies to proverbsSection and highlightSection to match planner's aesthetic */
+section[id$="Section"] { /* Targets sections ending with "Section" */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e22b86;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+}
+}

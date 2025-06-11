@@ -1,0 +1,418 @@
+/* --- Globale Stile & Basis-Layout --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Entfernt Standard-Margin des Browsers */
+    padding-top: 60px; /* Platz für die fixierte Navigationsleiste */
+    color: #ffffff; /* Allgemeine Textfarbe für die Seite */
+    box-sizing: border-box; /* Padding wird in der Gesamtgröße berücksichtigt */
+    min-height: 100vh; /* Mindesthöhe des Viewports */
+
+    /* Flexbox für das Body-Element hinzufügen, um Footer am Ende zu fixieren */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hintergrundbild auf dem HTML-Element, damit es den ganzen Viewport ausfüllt */
+html {
+    background-image: url("https://bit.ly/43Kdzup"); /* Tokyo Tower Bild von Unsplash */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%; /* Stellt sicher, dass das HTML-Element den gesamten Viewport einnimmt */
+}
+
+/* --- Allgemeine Link-Stile --- */
+a {
+    color: #e22b86; /* Rosa Farbe für Links im Inhalt */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Hauptinhaltsbereich (main) --- */
+main {
+    max-width: 1200px; /* Maximale Breite für den Hauptinhalt */
+    margin: 20px auto; /* Horizontal zentriert */
+    padding: 0 20px; /* Innenabstand an den Seiten */
+    display: flex; /* Flexbox für Zentrierung der Kinder */
+    flex-direction: column; /* Kinder untereinander anordnen */
+    align-items: center; /* Kinder horizontal zentrieren */
+    flex-grow: 1; /* Lässt den Hauptinhalt wachsen, um den Footer nach unten zu drücken */
+}
+
+
+/* --- Überschriften-Stile --- */
+h1,
+h2 {
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 30px; /* Abstand unter Überschriften */
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 40px; /* Abstand nach der Navigationsleiste */
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 50px; /* Abstand zwischen den Sektionen */
+}
+
+/* --- Navigationsleiste --- */
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(226, 43, 134, 0.6); /* Slightly more opaque for better readability */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Stellt sicher, dass die Navigation über anderen Elementen liegt */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap; /* Ermöglicht Umbruch auf kleineren Bildschirmen */
+    box-sizing: border-box;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb eines Links */
+    flex-grow: 1; /* Lässt Links auf Desktop-Ansicht wachsen */
+    text-align: center;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Stile für allgemeine Inhaltssektionen --- */
+/* Applies to proverbsSection and highlightSection to match planner's aesthetic */
+section[id$="Section"] { /* Targets sections ending with "Section" */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e22b86;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+
+/* Zentrierung des Formulars und der Reiseliste innerhalb der Sektion */
+/* Angepasst, um alle Formulare und Listen einzuschließen */
+#addDestinationForm, #reisezieleListe, #japaneseProverbsList, #restaurantReviewForm {
+    max-width: 500px; /* Begrenzt die Breite des Formulars */
+    margin: 0 auto 20px auto; /* Zentriert das Formular horizontal und gibt unten Abstand */
+    padding: 15px; /* Innenabstand wie zuvor */
+    border: 2px solid #e22b86; /* Rand wie zuvor */
+    border-radius: 10px; /* Abgerundete Ecken wie zuvor */
+    box-sizing: border-box; /* Stellt sicher, dass Padding in der Breite berücksichtigt wird */
+    background-color: rgba(0, 0, 0, 0.7); /* Hintergrundfarbe mit Transparenz */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Styling für Formulargruppen (Labels und Inputs zusammen) */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Labels und Inputs links ausrichten */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffd700; /* Goldene Farbe für Labels */
+}
+
+/* Gemeinsamer Stil für alle Input-Felder (Restaurant-Bewertung und Reiseplaner) */
+.form-input { /* Neue Klasse für einheitliche Input-Stile */
+    padding: 10px 15px;
+    border: 1px solid #e22b86;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1em;
+    width: 100%; /* Volle Breite innerhalb des Containers */
+    box-sizing: border-box; /* Wichtig für korrekte Breitenberechnung */
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ffd700; /* Gold beim Fokus */
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+
+/* Spezifische Anpassung für den Reiseplaner-Input, da er im travel-input-container ist */
+.travel-input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Abstand zwischen Input und Button */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Erlaubt Umbruch auf kleinen Bildschirmen */
+}
+
+.travel-input-container .form-input { /* Richtet sich an das Input-Feld innerhalb des Containers */
+    width: 250px; /* Feste Breite für Input */
+    max-width: calc(100% - 70px); /* Damit der Button daneben passt auf kleinen Screens */
+}
+
+
+/* Vereinheitlichte Button-Stile für alle Submit-Buttons */
+.submit-button, #addDestinationButton {
+    padding: 10px 20px;
+    background-color: #e22b86; /* Rosa */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Buttons nehmen nur so viel Platz wie nötig ein */
+    margin-top: 10px; /* Abstand nach oben zum Input */
+}
+
+.submit-button:hover, #addDestinationButton:hover {
+    background-color: #ffd700; /* Gold */
+    color: #000; /* Schwarz */
+    transform: translateY(-2px);
+}
+
+.travel-list {
+    list-style: none; /* Entfernt die Standard-Listpunkte */
+    padding: 0;
+    margin: 0 auto; /* Zentriert die Liste */
+    max-width: 500px; /* Maximale Breite für die Liste */
+    text-align: left; /* Text linksbündig in der Liste */
+}
+
+.travel-list li {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 3px solid #e22b86; /* Rosa Akzentlinie */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+/* NEU für Aufgabe 2: Highlight-Klasse */
+.highlight {
+    border: 3px solid #ffd700 !important; /* Goldener Rand */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7) !important; /* Starker goldener Schatten */
+    background-color: rgba(255, 215, 0, 0.1) !important; /* Leichter goldener Hintergrund */
+}
+
+/* Stil für die Highlight Box selbst */
+#highlightBox {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* --- Footer --- */
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; /* Beibehalten für Abstand zum Inhalt */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* --- Media Queries für Responsivität --- */
+
+/* Für Bildschirme bis 1024px Breite (größere Tablets und kleinere Laptops) */
+@media (max-width: 1024px) {
+    main {
+        max-width: 900px;
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Für Bildschirme bis 768px Breite (Tablets und kleinere Desktops) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    /* Navigation Anpassung für mittige Buttons */
+    .main-nav {
+        flex-direction: column;
+        padding: 5px 0;
+        align-items: center; /* Zentriert die gestapelten Links horizontal */
+    }
+
+    .main-nav a {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        flex-grow: 0;
+        width: 80%;
+        max-width: 250px;
+        margin: 5px auto;
+    }
+
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-top: 10px;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    /* Anpassung für den Reiseplaner auf kleineren Bildschirmen */
+    .travel-input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Gemeinsamer Stil für alle Input-Felder im Reiseplaner für kleinere Bildschirme */
+    .travel-input-container .form-input, /* Hier auch .form-input verwendet */
+    .travel-input-container textarea,
+    #addDestinationButton {
+        width: 90%;
+    }
+
+    /* Formular auf kleinen Bildschirmen anpassen */
+    #addDestinationForm { /* ID wurde von #add-destination-form zu #addDestinationForm geändert */
+        width: 95%; /* Fast volle Breite auf kleinen Bildschirmen */
+    }
+
+    /* Restaurant Formular und Buttons anpassen */
+    #restaurantReviewForm .form-input,
+    #restaurantReviewForm .submit-button {
+        width: 100%;
+        max-width: none; /* Keine maximale Breite für volle Responsivität */
+    }
+}
+
+/* Für sehr kleine Bildschirme (Mobile Phones) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 80px; /* Mehr Platz, da Navigationslinks ggf. 2 Zeilen einnehmen können */
+    }
+
+    /* Navigation Anpassung für sehr kleine Bildschirme */
+    .main-nav a {
+        padding: 8px 5px;
+        font-size: 0.9em;
+        width: 90%;
+        max-width: 200px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+
+    footer {
+        padding: 10px 0;
+        font-size: 0.8em;
+    }
+}
+
+/* --- NEU: Stile für Sprichwörter Anzeige (Micro-Projekt 4) --- */
+.proverb-display-section {
+    /* Diese Sektion verwendet bereits das allgemeine section[id$="Section"] Styling */
+    /* Zusätzliche Stile für die Inhalte der Sprichwort-Anzeige */
+}
+
+.proverb-card {
+    background-color: rgba(255, 255, 255, 0.08); /* Leichter, halbtransparenter Hintergrund */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.6); /* Goldener Rand */
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative; /* Für Animationen */
+    overflow: hidden; /* Verhindert, dass der Inhalt beim Transformieren überläuft */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Übergänge für Animation */
+}
+
+.proverb-card.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.proverb-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.proverb-text {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: #ffffff; /* Weißer Text */
+}
+
+.proverb-text.japanese {
+    font-family: 'Noto Sans JP', sans-serif; /* Eine japanische Schriftart */
+    color: #ffd700; /* Goldene Farbe für Japanisch */
+    font-size: 1.8em; /* Etwas größer für Japanisch */
+    margin-bottom: 10px;
+}
+
+.proverb-text.german {
+    font-style: italic;
+    color: #e22b86; /* Rosa Farbe für Deutsch */
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #ff4d4d; /* Rote Farbe für Fehlermeldungen */
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
