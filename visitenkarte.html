@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Reiseblogger - Visitenkarte</title>
+
+    <style>
+        /* --- Basis-Stile (für größere Bildschirme / Desktop-Ansicht) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column; /* Elemente werden vertikal gestapelt */
+            justify-content: center; /* Vertikal zentrieren */
+            align-items: center; /* Horizontal zentrieren */
+            min-height: 100vh; /* Mindesthöhe des Viewports */
+            background-image: url("https://bit.ly/43Kdzup");
+            background-attachment: fixed; /* Hintergrundbild scrollt nicht mit */
+            background-position: center; /* Bild im Zentrum positionieren */
+            background-repeat: no-repeat; /* Bild nicht wiederholen */
+            background-size: cover; /* Bild deckt den gesamten Bereich ab */
+            margin: 0; /* Standard-Margin des Browsers entfernen */
+            padding-top: 60px; /* Platz für die fixierte Navigationsleiste */
+            box-sizing: border-box; /* Padding wird in der Gesamtgröße berücksichtigt */
+        }
+
+        /* Navigationsleiste */
+        .main-nav {
+            display: flex;
+            justify-content: space-around; /* Gleichmäßiger Abstand zwischen den Links */
+            background-color: rgba(226, 43, 134, 0.4); /* Pink mit leichter Transparenz */
+            padding: 10px;
+            position: fixed; /* Bleibt beim Scrollen sichtbar */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Stellt sicher, dass die Navigation über anderen Elementen liegt */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Leichter Schatten für Tiefe */
+            flex-wrap: wrap; /* Links können umbrechen, wenn der Platz eng wird */
+            box-sizing: border-box;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none; /* Unterstreichung entfernen */
+            padding: 8px 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Sanfter Übergang beim Hover */
+            border-radius: 5px;
+            white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb eines Links */
+            flex-grow: 1; /* Lässt Links wachsen, um verfügbaren Platz zu füllen (Desktop) */
+            text-align: center;
+        }
+
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Hellerer Hintergrund beim Hover */
+        }
+
+        /* Visitenkarte */
+        .visitenkarte {
+            max-width: 300px; /* Maximale Breite für größere Bildschirme */
+            width: 90%; /* Nimmt 90% der verfügbaren Breite ein, wichtig für Responsivität */
+            padding: 20px;
+            border: 2px solid #e22b86; /* Pinker Rahmen */
+            margin: auto; /* Zentriert horizontal */
+            background-color: rgba(255, 255, 255, 0.7); /* Hellerer Hintergrund mit Transparenz */
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stärkerer Schatten */
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .visitenkarte h2 {
+            color: #000000;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .visitenkarte p {
+            color: #000000;
+            font-size: 1em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4; /* Zeilenhöhe für bessere Lesbarkeit */
+        }
+
+        .visitenkarte .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%; /* Rundes Bild */
+            object-fit: cover; /* Bildausschnitt anpassen */
+            margin-bottom: 15px;
+            border: 3px solid #e22b86; /* Pinker Rand um das Profilbild */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Schatten um das Profilbild */
+        }
+
+        .visitenkarte .contact-info a {
+            color: #e22b86;
+            text-decoration: none;
+            margin: 0 8px; /* Abstand zwischen den Kontakt-Links */
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .visitenkarte .contact-info a:hover {
+            text-decoration: underline;
+            color: #c72474; /* Dunkleres Pink beim Hover */
+        }
+
+        /* Footer */
+        footer {
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; /* Schiebt den Footer ganz nach unten (dank body flex-direction: column) */
+            width: 100%; /* Stellt sicher, dass der Footer die volle Breite einnimmt */
+            background-color: rgba(0, 0, 0, 0.4); /* Leichter dunkler Hintergrund für Lesbarkeit */
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Schatten über dem Footer */
+        }
+
+        /* --- Media Queries für Responsivität --- */
+
+        /* Für Bildschirme bis 768px Breite (Tablets und kleinere Desktops) */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px; /* Platz für die fixierte Navigationsleiste */
+            }
+
+            .main-nav {
+                flex-direction: column; /* Links untereinander anordnen */
+                padding: 5px 0;
+            }
+
+            .main-nav a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie zwischen Links */
+            }
+
+            .main-nav a:last-child {
+                border-bottom: none; /* Letzter Link ohne Trennlinie */
+            }
+
+            .visitenkarte {
+                width: 95%; /* Nimmt fast die volle Breite ein */
+                padding: 15px;
+                margin-top: 50px; /* Etwas weniger Abstand zum oberen Rand */
+            }
+
+            .visitenkarte h2 {
+                font-size: 1.6em;
+            }
+
+            .visitenkarte p {
+                font-size: 0.95em;
+            }
+
+            .visitenkarte .profile-img {
+                width: 80px; /* Größe für kleinere Bildschirme anpassen */
+                height: 80px;
+            }
+        }
+
+        /* Für sehr kleine Bildschirme (Mobile Phones) */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 80px; /* Mehr Platz, da Navigationslinks ggf. 2 Zeilen einnehmen */
+            }
+
+            .main-nav a {
+                padding: 8px 5px; /* Noch weniger horizontaler Padding */
+                font-size: 0.9em;
+            }
+
+            .visitenkarte {
+                width: 98%; /* Fast volle Breite, um den Platz optimal zu nutzen */
+                padding: 10px;
+                margin-top: 40px;
+            }
+
+            .visitenkarte h2 {
+                font-size: 1.4em;
+            }
+
+            .visitenkarte p {
+                font-size: 0.9em;
+            }
+            .visitenkarte .contact-info a {
+                font-size: 0.9em;
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="./index.html">Home</a>
+        </nav>
+
+
+    <div class="visitenkarte">
+        <img src="http://bit.ly/4kqi6rD" alt="Profilbild Japan Reiseblogger" class="profile-img">
+
+        <h2>Max Px</h2>
+        <p>Japan Reiseblogger</p>
+        <p>"Erkunde Japan mit mir – von den neonhellen Straßen Tokios bis zu den spirituellen Gipfeln Koyasans."</p>
+
+        <div class="contact-info">
+            <a href="mailto:deine.email@example.com">E-Mail</a> |
+            <a href="[URL_ZU_DEINEM_BLOG]" target="_blank" rel="noopener noreferrer">Blog</a> |
+            <a href="[URL_ZU_DEINEM_SOCIAL_MEDIA]" target="_blank" rel="noopener noreferrer">Social Media</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><small>&copy; 2025 Max Px</small></p>
+    </footer>
+
+</body>
+</html>

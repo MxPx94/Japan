@@ -1,0 +1,388 @@
+/* --- Basis-Stile für das Quiz --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Bevorzugte Schriftart */
+    line-height: 1.6;
+    margin: 0; /* Entfernt Standard-Margin des Browsers */
+    padding-top: 60px; /* Platz für die fixierte Navigationsleiste (muss so bleiben!) */
+    color: #ffffff; /* Allgemeine Textfarbe */
+    box-sizing: border-box; /* Padding wird in der Gesamtgröße berücksichtigt */
+    min-height: 100vh; /* Mindestens die Höhe des Viewports */
+    display: flex; /* Flexbox für Layout */
+    flex-direction: column; /* Elemente vertikal stapeln */
+    align-items: center; /* Horizontale Zentrierung der Inhalte */
+    justify-content: flex-start; /* Inhalte am oberen Rand starten */
+}
+
+/* --- Navigationsleiste --- */
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(226, 43, 134, 0.4); /* Rosa-Transparenz */
+    padding: 10px;
+    position: fixed; /* Fixiert am oberen Rand */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Stellt sicher, dass die Navigation über anderen Elementen liegt */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap; /* Ermöglicht Umbruch auf kleineren Bildschirmen */
+    box-sizing: border-box;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb eines Links */
+    flex-grow: 1; /* Lässt Links auf Desktop-Ansicht wachsen */
+    text-align: center;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Hauptinhalts-Container --- */
+.quiz-container {
+    max-width: 800px; /* Maximale Breite für größere Bildschirme */
+    width: 90%; /* Nimmt 90% der verfügbaren Breite ein (responsiv) */
+    padding: 20px; /* Innenabstand */
+    border: 2px solid #e22b86;
+    margin: 60px auto 30px auto; /* Oben 60px (Platz unter Nav), horizontal zentriert, unten 30px */
+    background-color: rgba(0, 0, 0, 0.7); /* Hintergrundfarbe mit Transparenz */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Hintergrundbild auf dem HTML-Element, damit es den ganzen Viewport ausfüllt */
+html {
+    background-image: url("https://bit.ly/43Kdzup"); /* Tokyo Tower Bild von Unsplash */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%; /* Stellt sicher, dass das HTML-Element den gesamten Viewport einnimmt */
+}
+
+/* Überschriften-Stile */
+h1,
+h2 {
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 30px; /* Abstand unter Überschriften */
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 40px; /* Abstand nach dem Body-Padding */
+}
+
+h2 {
+    font-size: 2em;
+}
+
+/* --- Japan Quiz Spezifische Stile --- */
+.quiz-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Dunkler, transparenter Hintergrund */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stärkerer Schatten */
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto; /* Zentrierung und Abstand von oben/unten */
+    border: 2px solid #e22b86; /* Rosa Rand passend zum Thema */
+    box-sizing: border-box;
+}
+
+.quiz-container h1 { /* Überschrift innerhalb des Quiz-Containers */
+    color: #ffffff; /* Weiß */
+    text-shadow: 2px 2px 4px #000000;
+    margin-top: 0; /* Überschreiben des allgemeinen h1 margin-top für Container */
+    margin-bottom: 25px;
+    font-size: 2.5em; /* Etwas kleiner als das Haupt-H1, passt besser im Container */
+}
+
+.question-area h2 { /* Fragen-Text */
+    color: #ffffff; /* Weiß */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.option-button {
+    background-color: rgba(255, 255, 255, 0.1); /* Leichter transparenter Hintergrund */
+    border: 1px solid rgba(226, 43, 134, 0.7); /* Rosa Rand */
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #ffffff; /* Weißer Text */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.option-button:hover {
+    background-color: rgba(226, 43, 134, 0.4); /* Rosa-Transparent beim Hover */
+    border-color: #e22b86; /* Volles Rosa für den Rand */
+    transform: translateY(-2px);
+}
+
+.option-button.selected {
+    background-color: rgba(0, 123, 255, 0.6); /* Blau-Transparent für ausgewählte Antwort */
+    border-color: #007bff; /* Volles Blau für den Rand */
+    color: white;
+}
+
+.option-button.correct {
+    background-color: rgba(40, 167, 69, 0.7); /* Grün-Transparent für richtige Antwort */
+    border-color: #28a745; /* Volles Grün für den Rand */
+    color: white;
+}
+
+.option-button.wrong {
+    background-color: rgba(220, 53, 69, 0.7); /* Rot-Transparent für falsche Antwort */
+    border-color: #dc3545; /* Volles Rot für den Rand */
+    color: white;
+}
+
+.option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-button {
+    background-color: #e22b86; /* Rosa passend zum Thema */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-button:hover {
+    background-color: #c01e74; /* Dunkleres Rosa beim Hover */
+    transform: translateY(-1px);
+}
+
+.result-area {
+    margin-top: 20px;
+}
+
+.result-area h2 {
+    color: #ffffff; /* Weiß */
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.result-area p {
+    font-size: 1.3em; /* Etwas größer für das Ergebnis */
+    color: #ffffff; /* Weiß */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
+}
+
+.result-area p span {
+    font-weight: bold;
+    color: #ffd700; /* Gold für die Zahlen */
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* --- Media Queries für Responsivität (Quiz-spezifisch) --- */
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 20px;
+        margin: 20px auto; /* Anpassung für kleinere Bildschirme */
+    }
+
+    .quiz-container h1 {
+        font-size: 2em;
+    }
+
+    .question-area h2 {
+        font-size: 1.4em;
+    }
+
+    .option-button {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    .quiz-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .result-area p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .quiz-container h1 {
+        font-size: 1.8em;
+    }
+
+    .question-area h2 {
+        font-size: 1.2em;
+    }
+
+    .option-button {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .quiz-button {
+        padding: 8px 18px;
+        font-size: 0.9em;
+    }
+
+    .result-area p {
+        font-size: 1em;
+    }
+}
+
+/* --- Neu: Styling für Fortschrittsanzeige und Timer --- */
+.progress-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.timer-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Heller, transparenter Hintergrund */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Wichtig, damit der gefüllte Balken nicht überläuft */
+}
+
+.timer-bar {
+    width: 100%; /* Startbreite */
+    height: 100%;
+    background-color: #ffd700; /* Goldgelb für den Timer */
+    transition: width linear; /* Sanfter Übergang beim Schrumpfen */
+    transform-origin: left; /* Wichtig, damit der Balken von links schrumpft */
+}
+
+/* --- Neu: Styling für Highscore-Anzeige --- */
+.highscore-display {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.05); /* Sehr heller, transparenter Hintergrund */
+    border: 1px solid rgba(226, 43, 134, 0.5); /* Rosa Rand */
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.highscore-display h3 {
+    color: #e22b86; /* Rosa Überschrift */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-shadow: none; /* Schatten hier entfernen */
+}
+
+#highscore-list {
+    list-style: none; /* Keine Standard-Listenpunkte */
+    padding: 0;
+    margin: 0;
+}
+
+#highscore-list li {
+    font-size: 1em;
+    color: #ffffff;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between; /* Name links, Score rechts */
+    align-items: center;
+}
+
+#highscore-list li:last-child {
+    border-bottom: none; /* Keine Linie unter dem letzten Eintrag */
+}
+
+#highscore-list li span:first-child {
+    font-weight: bold; /* Name fett */
+    color: #ffffff;
+}
+
+#highscore-list li span:last-child {
+    font-weight: bold; /* Score fett */
+    color: #ffd700; /* Gold für den Score */
+}
+
+/* --- Neu: Animationen für Feedback und Optionen --- */
+/* Animation für die richtige Antwort */
+@keyframes correct-answer {
+    0% { transform: scale(1); background-color: rgba(40, 167, 69, 0.7); }
+    50% { transform: scale(1.02); background-color: rgba(40, 167, 69, 0.9); }
+    100% { transform: scale(1); background-color: rgba(40, 167, 69, 0.7); }
+}
+
+/* Animation für die falsche Antwort */
+@keyframes wrong-answer {
+    0% { transform: translateX(0); background-color: rgba(220, 53, 69, 0.7); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); background-color: rgba(220, 53, 69, 0.7); }
+}
+
+/* Animation für die Auswahl einer Option */
+@keyframes selected-option {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+.option-button.correct {
+    animation: correct-answer 0.6s ease-in-out;
+}
+
+.option-button.wrong {
+    animation: wrong-answer 0.5s ease-in-out;
+}
+
+.option-button.selected {
+    animation: selected-option 0.2s ease-out;
+}

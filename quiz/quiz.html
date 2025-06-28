@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Quiz</title>
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="../index.html">Startseite</a>
+    </nav>
+
+    <div class="quiz-container">
+        <h1>Japan Quiz</h1>
+
+        <p id="progress-text" class="progress-text">Frage 1 von 5</p>
+
+        <div id="question-area" class="question-area">
+            <div class="timer-bar-container">
+                <div id="timer-bar" class="timer-bar"></div>
+            </div>
+            <h2 id="question-text"></h2>
+            <div id="options-container" class="options-container">
+                </div>
+            <button id="next-button" class="quiz-button">Nächste Frage</button>
+        </div>
+
+        <div id="result-area" class="result-area hidden">
+            <h2>Quiz beendet!</h2>
+            <p>Du hast <span id="score">0</span> von <span id="total-questions">0</span> Fragen richtig beantwortet.</p>
+            <div class="highscore-display">
+                <h3>Highscores</h3>
+                <ul id="highscore-list">
+                    </ul>
+            </div>
+            <button id="restart-button" class="quiz-button">Neues Spiel</button>
+        </div>
+    </div>
+
+    <footer>
+         <p><small>&copy; [2025] Max Px</small></p>
+    </footer>
+
+    <script type="module" src="quiz.js"></script>
+</body>
+</html>

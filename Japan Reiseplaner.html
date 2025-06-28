@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Reiseplaner - Tag 30</title>
+    <link rel="stylesheet" href="reiseplaner-styles.css"> </head>
+<body>
+
+     <nav class="main-nav">
+        <a href="./index.html">Home</a>
+    </nav>
+
+    <main>
+        <h1>Willkommen zum Japan Reiseplaner</h1>
+
+        <section id="proverbsSection">
+            <h2>Japanische Sprichwörter</h2>
+            <ul id="japaneseProverbsList" class="travel-list">
+                </ul>
+        </section>
+
+        <section id="highlightSection">
+            <h2>Highlight Box</h2>
+            <button id="toggleHighlightButton">Highlight Box Umschalten</button>
+            <div id="highlightBox">
+                Dies ist eine Box, die hervorgehoben werden kann.
+            </div>
+        </section>
+
+        <section id="restaurantReviewSection">
+            <h2>Japanisches Restaurant bewerten</h2>
+            <form id="restaurantReviewForm">
+                <div class="form-group">
+                    <label for="restaurantName">Restaurant Name:</label>
+                    <input type="text" id="restaurantName" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Bewertung (1-5):</label>
+                    <input type="number" id="rating" min="1" max="5" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Kommentar:</label>
+                    <textarea id="comment" rows="4" class="form-input"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Bewertung absenden</button>
+            </form>
+        </section>
+
+
+        <section id="japanTravelPlannerSection">
+            <h2>Mein Japan Reiseplaner</h2>
+            <form id="addDestinationForm">
+                <div class="travel-input-container">
+                    <input type="text" id="destinationInput" placeholder="Neues Reiseziel hinzufügen" required>
+                    <button type="submit" id="addDestinationButton">Reiseziel hinzufügen</button>
+                </div>
+            </form>
+            <ul id="reisezieleListe" class="travel-list">
+                </ul>
+        </section>
+
+         <section id="proverbDisplaySection" class="proverb-display-section">
+            <h2>Zufälliges Japanisches Sprichwort</h2>
+            <div class="proverb-card">
+                <p id="japaneseProverb" class="proverb-text japanese"></p>
+                <p id="germanProverb" class="proverb-text german"></p>
+                <button id="nextProverbButton" class="submit-button">Nächstes Sprichwort</button>
+            </div>
+            <p id="proverbError" class="error-message"></p>
+        </section>
+
+        <section id="localStorageSection">
+            <h2>LocalStorage Demo: Speichere deinen Namen</h2>
+            <div class="form-group">
+                <label for="userNameInput">Dein Name:</label>
+                <input type="text" id="userNameInput" class="form-input" placeholder="Gib deinen Namen hier ein">
+            </div>
+            
+            <p>Der Name wird beim Tippen im LocalStorage gespeichert und bleibt nach dem Neuladen der Seite erhalten.</p>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p><small>&copy; [2025] Max Px</small></p>
+    </footer>
+
+    <script type="module" src="script2.js"></script>
+</body>
+</html>
